@@ -78,3 +78,7 @@ Inline mode: type `@yourbot cat` in any chat to share a saved photo, file, video
   The file is checked first (SQLite integrity check plus the required tables). The current DB is saved as `storage.before-restore-<time>.db` next to it, so you can undo a restore.
 
 Data: `storage.db` (SQLite) keeps topic ↔ thread mapping and an index of saved items for `/find`. The actual content lives in Telegram.
+
+## License
+
+[MIT](LICENSE)
