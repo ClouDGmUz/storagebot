@@ -25,6 +25,13 @@ docker compose logs -f
 
 The database is kept in the `storagebot-data` volume (`/data/storage.db`), so it survives rebuilds.
 
+### Railway
+
+1. New Project → Deploy from GitHub repo → pick this repo (it builds from the `Dockerfile`).
+2. **Variables**: add `BOT_TOKEN` (and optionally `ALLOWED_USER_IDS`).
+3. **Add a Volume** to the service with mount path `/data`. Without it the database is wiped on every redeploy.
+4. Run only **one** replica: Telegram polling allows one bot instance at a time.
+
 ## Usage
 
 Send to the bot in private:

@@ -11,9 +11,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY bot.py db.py ./
 
-RUN useradd --create-home --uid 1000 bot && mkdir -p /data && chown bot:bot /data
-USER bot
-
-VOLUME ["/data"]
+# Persistent storage is mounted at /data by the platform
+# (docker-compose volume locally, Railway Volume in the cloud).
+# No VOLUME/USER here: Railway rejects VOLUME and mounts volumes as root.
+RUN mkdir -p /data
 
 CMD ["python", "bot.py"]
