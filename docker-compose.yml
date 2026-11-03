@@ -1,0 +1,18 @@
+services:
+  storagebot:
+    build: .
+    container_name: storagebot
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DB_PATH: /data/storage.db
+    volumes:
+      - storagebot-data:/data
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  storagebot-data:
